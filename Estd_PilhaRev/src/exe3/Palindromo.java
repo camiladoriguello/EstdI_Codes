@@ -10,22 +10,22 @@ public class Palindromo {
 	public static void main (String [] args) {
 		
 		Scanner scanner = new Scanner(System.in); //definindo variáveis do sistema
-		Stack<Character> string = new Stack<Character>();
-		Stack<Character> palind = new Stack<Character>();
+		System.out.print("Escreva uma palavra para verificar se é palíndromo:");
+		String palavra = scanner.nextLine();
+		scanner.next();
 		
-		System.out.print("P:"); 
-		String word = scanner.next(); //lendo a palavra a ser testada
-		char[] wordChar = word.toCharArray();
+		char[] pOrdenada = palavra.toCharArray();
+		char[] pInversa = new char[pOrdenada.length];
 		
-		for(int i = 0; i < wordChar.length; i++) { //transformando o vetor de caracteres em uma pilha
-			string.push(wordChar[i]);
+		for(int i = (pOrdenada.length - 1); i >= 0; i--) {
+			for(int j = 0; j < pOrdenada.length; j++) {
+				pInversa[i] = pOrdenada[j];
+			}
 		}
 		
-		for(int i = 0; i < wordChar.length; i++) {
-			palind.push(string.peek());
+		for(int i = 0; i < pOrdenada.length; i++) {
+			System.out.println(pInversa[i]);
 		}
-		
-		System.out.println(palind);
 	}
 	
 
